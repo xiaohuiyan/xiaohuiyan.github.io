@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Xiaohui Yan&#39;s Homepage by xiaohuiyan</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	   <script type="text/javascript" src="javascriptS/jquery-1.3.2.min.js"></script>
+	   <script type="text/javascript" src="javascripts/jquery.inputHintBox.js"></script>
+	   <style>
+		 .hint_box {
+		 width:500px;
+		 padding:10px;
+		 font-size:12px;
+		 background-color:#EFD;
+		 line-height:110%;
+		 border:2px solid #AA6;
+		 }
+	   </style> 
+
+	   <script type="text/javascript">
+		 $().ready(function() {
+         $('.hint_link').inputHintBox({ className: 'hint_box', source: 'attr', attr: 'tip', incrementLeft:5});
+         $('body').click(function(e) {
+         var $clicked = $(e.target);
+         if (!($clicked.is('.hint_link') || $clicked.is('.hint_box') || $clicked.parents().is('.hint_box'))) {
+         $('.hint_box').fadeOut();
+         }
+         });        
+		 });
+	   </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+		<img src="img/me_small.jpg" style="border:1px solid #EEE;padding:2px;">
+        <h2>Xiaohui Yan</h2>
+        <p>Text Mining, Machine Learning</p>
+		<P>Beijing, China </>
+<p class="view"><a href="http://scholar.google.com/citations?user=KZuRKHsAAAAJ&hl=en">Google Scholar</></p>
+<p class="view"><a href="https://github.com/xiaohuiyan">GitHub Profile</a></p>
+<p class="view"><a href="www.linkedin.com/in/xiaohuiyan">Linkedin</a></p>
+
+</header>
+<section>
+<!--	<p>From April 2016, I work in Didi Research. Before that, I am an assistant
+	Researcher in the <a href="http://www.ict.ac.cn/">Institute of Computing Technology of the Chinese Academy of Sciences</a>.
+	  </p>-->
+  <H3>
+	<a id="welcome-to-github-pages" class="anchor"
+	   href="#welcome-to-github-pages"
+	   aria-hidden="true">
+	  <span aria-hidden="true" class="octicon
+									  octicon-link"></span>
+  </a>Past Work</h3>
+  <p>2014.07-2016.04  Developed a cloud-based machine learning system called <a href="http://159.226.40.104:18080/">BDA (Big Data
+  Analysis) Platform</a>, which provides a web UI to build and manage
+	  machine learning jobs. </p>
+	<p>2011.09-2014.07 Developed the biterm-based topic models, including
+	  <a href="https://github.com/xiaohuiyan/BTM">BTM</a>,
+	  <a href="https://github.com/xiaohuiyan/OnlineBTM">OnlineBTM</a>, and
+	  <a href="https://github.com/xiaohuiyan/BurstyBTM">BurstBTM</a>),
+	  for short	text topic mining.<p>
+
+  <h3>
+	<a id="rather-drive-stick" class="anchor" href="#rather-drive-stick" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Publications</h3>
+  	  <div>
+		<ul>
+		  <li>
+			Tianyou Guo, Jun Xu, <b><i>Xiaohui Yan</i></b>, Jianpeng
+			Hou, Ping Li, Zhaohui Li, Jiafeng Guo, and Xueqi
+			Cheng. Ease the Process of Machine Learning with
+			Dataflow. Proceedings of the 25th ACM International
+			Conference on Information and Knowledge Management (CIKM
+			'16), Indianapolis, USA. Demo paper.
+			[<a href="paper/CIKM2016_BDADemo.pdf">paper</a>, <a href="http://159.226.40.104:18080/">demo</a>]
+		  </li>
+		  <li><b><i>Xiaohui Yan</i></b>, Jiafeng Guo, Yanyan Lan, Jun Xu, and Xueqi Cheng.
+			<i>A Probabilistic Model for Bursty Topic Discovery in
+			Microblogs</i>. The Twenty-Ninth AAAI Conference on
+			Artificial Intelligence<b>(AAAI'15 Oral)</b>,  Austin Texas, USA, 2015.
+			<br> 
+			[<a href="paper/BBTM-AAAI15.pdf">paper</a>, <a href="paper/BBTM-AAAI15-supplemental.pdf">supplemental material</a>,
+			<a href="https://github.com/xiaohuiyan/BurstyBTM" target="_blank">code(C++)</a>, 
+			<a href="javascript:void(0);" class="hint_link" 
+			   tip="@INPROCEEDINGS{yan2015bbtm, <br>
+					author =  {Yan, Xiaohui and Guo, Jiafeng and Lan,
+			Yanyan and Xu, Jun and Cheng, Xueqi},<br>
+			title = {A Probabilistic Model for Bursty Topic Discovery in Microblogs},<br>
+					booktitle = {The Twenty-Ninth AAAI Conference on Artificial Intelligence},<br>
+					year = {2015}<br>
+					}">bibtex</a>]
+		  </li>		
+		  <li> <b><i>Xiaohui Yan</i></b>.
+			<i><a href="paper/yxh-thesis-public.pdf">Topic Modeling over Short Texts</a> (In Chinese)</i>. Ph.D
+			thesis. CAS, 2014.
+			</li>		  
+		  <li>Xueqi Cheng, <b><i>Xiaohui Yan</i></b>, Yanyan Lan, and Jiafeng Guo.
+			<i>BTM: Topic Modeling over Short Texts</i>. IEEE Transactions on Knowledge and Data Engineering<b>(TKDE)</b>, vol.26, no.12, pages 2928-2941, Dec. 1 2014.
+		  <br> 
+		  [<a href="paper/BTM-TKDE.pdf">paper</a>, <a href="paper/BTM-TKDE-supplemental.pdf">supplemental material</a>,
+		  <a href="https://github.com/xiaohuiyan/OnlineBTM" target="_blank">code(C++)</a>, 
+		  <a href="javascript:void(0);" class="hint_link" 
+			 tip="@INPROCEEDINGS{yan2014btm, <br>
+				  author =  {Cheng, Xueqi and Yan, Xiaohui and Lan, Yanyan and  Guo, Jiafeng },<br>
+				  title = {BTM: Topic Modeling over Short Texts},<br>
+				  booktitle = {IEEE Transactions on Knowledge and Data Engineering},<br>
+				  year = {accepted}<br>
+				  }">bibtex</a>]
+		</li>
+		<li>Pengfei Wang, Yanyan Lan, Jiafeng Guo, <b><i>Xiaohui Yan</i></b>, and Xueqi Cheng.
+			<i>Problistic Transaction Model for recommending data of offline shopping mall</i>. Journal of Chinese Information, 2014.
+		</li>
+		<li><b><i>Xiaohui Yan</i></b>, Jiafeng Guo, Yanyan Lan, and
+		  Xueqi Cheng. <i>A Biterm Topic Model for Short Texts</i>. In
+		  Proceedings of the 22nd international conference on World Wide
+		  Web, <i><b>WWW'13</b></i>, pages 1445-1456, Rio de Janeiro,
+		  Brazil, 2013,
+		  ACM. <br> 
+		  [<a href="paper/BTM-WWW13.pdf">paper(typo corrected)</a>,
+		  <a href="paper/BTM_WWW13_slides.ppt">slides</a>,
+		  <a href="https://github.com/xiaohuiyan/BTM" target="_blank">code(C++)</a>, 
+		  <a href="javascript:void(0);" class="hint_link" tip="
+@INPROCEEDINGS{yan2013biterm, <br>
+  author = {Yan, Xiaohui and Guo, Jiafeng and Lan, Yanyan and Cheng, Xueqi},<br>
+  title = {A Biterm Topic Model for Short Texts},<br>
+  pages = {1445--1456}, <br>
+  booktitle = {Proceedings of the 22nd international conference on World Wide Web},<br>
+  year = {2013}<br>
+}">bibtex</a>]
+		</li>
+
+		  <li><b><i>Xiaohui Yan</i></b>, Jiafeng Guo, Shenhua Liu,
+			Xueqi Cheng, and Yanfeng Wang. <i> Learning Topics of Short
+			  Texts by Non-negative Matrix Factorization on Term
+			  Correlation Matrix.</i> Proceedings of the 13nd SIAM
+			International Conference on Data
+			Mining, <i><b>SDM'13</b></i>, pages 749-758, Austin, Texas,
+			USA, 2013,
+			SIAM. <br>
+			[<a href="paper/TNMF-SDM13.pdf">paper</a>,
+			<a href="tnmf.html">website</a>, 
+			<a href="javascript:void(0);" class="hint_link" tip="
+@INPROCEEDINGS{yan2013learning,<br>
+  author = {Yan, Xiaohui and Guo, Jiafeng and Liu, Shenghua and Cheng, Xueqi and Wang, Yanfeng},<br>
+  title = {Learning Topics in Short Texts by Non-negative Matrix Factorization on Term Correlation Matrix},<br>
+  booktitle = {Proceedings of the SIAM International Conference on Data Mining},<br>
+  year = {2013}<br>
+ }">bibtex</a>]
+		  </li>
+
+		  <li><b><i>Xiaohui Yan</i></b>, Jiafeng Guo, Shenhua Liu,
+			Xueqi Cheng and Yanfeng Wang. <i>Clustering short text using
+			  ncut-weighted non-negative matrix factorization.</i> In
+			Proceedings of the 21st ACM international con-ference on
+			Information and knowledge management, <i><b>CIKM'12</b></i>,
+			pages 2259-2262, New York, NY, USA,
+			2012. ACM. <br>
+			[<a href="paper/WNMF-CIKM12.pdf">paper</a>,
+			<a href="paper/WNMF-CIKM12-poster.pdf">poster</a>, 
+			<a href="javascript:void(0);" class="hint_link" tip="
+@inproceedings{yan2012clustering,<br>
+ author = {Yan, Xiaohui and Guo, Jiafeng and Liu, Shenghua and Cheng, Xue-qi and Wang, Yanfeng},<br>
+ title = {Clustering short text using Ncut-weighted non-negative matrix factorization},<br>
+ booktitle = {Proceedings of the 21st ACM international conference on Information and knowledge management},<br>
+ year = {2012},<br>
+ pages = {2259--2262}<br>
+} 			
+">bibtex</a>]			  
+		  </li>
+
+		  <li><b><i>Xiaohui Yan</i></b>, Jiafeng Guo, and Xueqi
+			Cheng. <i>Context-aware query recommendation by learning
+			  high-order relation in query logs.</i> In Proceedings of the
+			20th ACM interna-tional conference on Information and
+			knowledge management, <i><b>CIKM'11</b></i>, pages 2073-2076,
+			New York, NY, USA,
+			2011. ACM. <br>
+			[<a href="paper/QR-CIKM11.pdf">paper</a>, <a href="paper/QR-CIKM11-poster.pdf">
+			  poster</a>,
+			<a href="https://github.com/l0he1g/codecloud/tree/master/EM/em_hadoop">code(Hadoop)</a>,
+			<a href="javascript:void(0);" class="hint_link" tip="
+@inproceedings{yan2011context-aware,<br>
+ author = {Yan, Xiaohui and Guo, Jiafeng and Cheng, Xueqi},<br>
+ title = {Context-aware query recommendation by learning high-order relation in query logs},<br>
+ booktitle = {Proceedings of the 20th ACM international conference on Information and knowledge management},<br>
+ year = {2011},<br>
+ pages = {2073--2076}<br>
+} 
+">bibtex</a>]
+		  </li>
+		</ul>
+	  </div>
+      </section>
+      <footer>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
