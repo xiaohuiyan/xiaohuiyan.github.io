@@ -63,7 +63,7 @@
 									  octicon-link"></span>
   </a>Work Experience</h3>
        <ul>
-      <li>2017.02-now  &nbsp;&nbsp; Lead of the dialog and QA group, Huawei Poisson Lab. Develope dialog systems for Huawei AI smart-speaker and intelligent custom service on Vmall and mobile phone.</l>
+      <li>2017.02-now  &nbsp;&nbsp; Leader of the dialog and QA group, Huawei Poisson Lab. Develope dialog systems for Huawei AI smart-speaker and intelligent custom service on Vmall and mobile phone.</l>
       <li>2016.04-2017.02  &nbsp;&nbsp; Technique expert, Didi AI Lab. Worked on user profiling and intelligent car dispatch. </li>
       <li>2014.07-2016.04  &nbsp;&nbsp; Assitant Professor, Institute of Computing Technology of the Chinese Academy of Sciences. Developed a cloud-based machine learning system called <a href="http://159.226.40.104:18080/">BDA (Big Data
   Analysis) Platform</a>, which provides a web UI to build and manage
@@ -73,6 +73,9 @@
 	<a id="rather-drive-stick" class="anchor" href="#rather-drive-stick" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Publications</h3>
   	  <div>
 		<ul>
+			<li>Shuwen Xiao, Zhou Zhao, Zijian Zhang, Xiaohui Yan, Min Yang. Convolutional Hierarchical Attention Network for Query-Focused Video Summarization. <b>AAAI 2020</b>. (CCF Rank A) </li>
+			<li>Linhao Zhang, Dehong Ma, Xiaodong Zhang, Xiaohui Yan, Houfeng Wang. Graph LSTM with Context-Gated Mechanism for Spoken Language Understanding. <b>AAAI 2020</b>. (CCF Rank A) </li>
+			<li>Ye Liu, Chenwei Zhang, Xiaohui Yan, Yi Chang, Philip S. Yu. Generative Question Refinement with Deep Reinforcement Learning in Retrieval-based QA System. <b>CIKM 2019</b>. (CCF Rank B) </li>
 			<li>Zhou Zhao, Zhu Zhang, Shuwen Xiao, Zhenxin Xiao, <I>Xiaohui Yan</I>, Jun Yu, Deng Cai, Fei Wu. Long-Form Video Question Answering via Dynamic Hierarchical Reinforced Networks. <b>IEEE Transactions on Image Processing (TIP) 2019</b>. (CCF Rank A) </li>
 			<li>Peng Wu, Shujian Huang, Rongxiang Weng, Zaixiang Zheng, Jianbing Zhang, <i>Xiaohui Yan</i>, Jiajun Chen. Learning Representation Mapping for Relation Detection in Knowledge Base Question Answering. <b>ACL 2019</b>. (CCF Rank A)</li>
 			<li>Suwei Zhang, Yuan Yao, Feng Xu, Hanghang Tong, <i>Xiaohui Yan</i>, Jian Lv.<a href="https://pdfs.semanticscholar.org/bdc7/cce0393d1788f992c2e6a824b066e95e15d1.pdf">Hashtag Recommendation for Photo Sharing Services.</a> <b>AAAI 2019</b>. (CCF Rank A)</li>
