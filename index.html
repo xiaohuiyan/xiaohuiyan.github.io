@@ -1,532 +1,591 @@
 <!doctype html>
-<html lang="zh">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Xiaohui Yan (晏小辉) — Deep Research · Search LLM · NLP</title>
-  <meta name="description" content="Xiaohui Yan (晏小辉) is Deputy Chief Scientist at Huawei Xiaoyi, working on Deep Research Agents, Search-Augmented LLMs, and NLP. Creator of the Biterm Topic Model (BTM).">
-  <meta name="keywords" content="Xiaohui Yan, 晏小辉, LLM, Deep Research, NLP, Information Retrieval, Biterm Topic Model, BTM, Huawei, topic modeling">
-  <meta property="og:title" content="Xiaohui Yan — Deep Research · Search LLM · NLP">
-  <meta property="og:description" content="Deputy Chief Scientist at Huawei Xiaoyi. Creator of BTM. Working on Deep Research Agents and Search-Augmented LLMs.">
+  <title>Xiaohui Yan (晏小辉) — Self-Evolving Agents · Deep Research · Search</title>
+  <meta name="description" content="Xiaohui Yan (晏小辉) is Deputy Chief Scientist and Head of NLP at Huawei Xiaoyi, building self-evolving agents for deep research, search, and scientific discovery. Recent work: SearchJev, a survey of experience-driven LLM agents, and EvoScientist. Creator of the Biterm Topic Model (BTM).">
+  <meta name="keywords" content="Xiaohui Yan, 晏小辉, LLM agents, self-evolving agents, experience-driven agents, search agents, SearchJev, Deep Research, EvoScientist, NLP, Information Retrieval, Biterm Topic Model, BTM, Huawei Xiaoyi">
+  <meta name="theme-color" content="#2F5BEA">
+  <meta property="og:title" content="Xiaohui Yan (晏小辉) — Self-Evolving Agents · Deep Research · Search">
+  <meta property="og:description" content="Deputy Chief Scientist & Head of NLP at Huawei Xiaoyi. Building self-evolving agents for deep research, search, and science. Creator of BTM.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xiaohuiyan.github.io/">
+  <meta property="og:image" content="https://xiaohuiyan.github.io/img/me.jpg">
+  <script>
+    (function () {
+      var l; try { l = localStorage.getItem('lang'); } catch (e) {}
+      if (l !== 'en' && l !== 'zh-CN') l = /^zh/i.test(navigator.language || '') ? 'zh-CN' : 'en';
+      var d = document.documentElement; d.lang = l; d.className += ' js';
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #F2EDE6;
-      --ink: #1A1614;
-      --ink2: #5C534C;
-      --ink3: #9C8F87;
-      --accent: #8B4A1C;
-      --accent-light: #C4712E;
-      --line: rgba(92,83,76,0.15);
-      --card: rgba(255,255,255,0.55);
-      --feat-bg: rgba(139,74,28,0.05);
-      --feat-border: rgba(139,74,28,0.22);
-      --ff-display: 'Playfair Display', Georgia, serif;
-      --ff-body: 'IBM Plex Sans', system-ui, sans-serif;
-      --ff-mono: 'IBM Plex Mono', monospace;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background-color: var(--bg);
-      color: var(--ink);
-      font-family: var(--ff-body);
-      font-size: 15px;
-      line-height: 1.7;
-    }
-
-    /* LAYOUT */
-    .layout {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      min-height: 100vh;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    /* SIDEBAR */
-    .sidebar {
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      overflow-y: auto;
-      padding: 52px 36px 40px;
-      border-right: 1px solid var(--line);
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-    }
-
-    .avatar-wrap { position: relative; width: 110px; }
-    .avatar-wrap::before {
-      content: '';
-      position: absolute;
-      inset: -5px;
-      border: 1.5px solid var(--accent-light);
-      border-radius: 3px;
-      opacity: 0.45;
-    }
-    .avatar-wrap img {
-      width: 110px; height: 110px;
-      object-fit: cover; border-radius: 2px;
-      display: block; filter: sepia(8%) contrast(1.02);
-    }
-
-    .profile-name {
-      font-family: var(--ff-display);
-      font-size: 22px; font-weight: 600;
-      letter-spacing: -0.02em; color: var(--ink);
-      margin-bottom: 4px;
-    }
-    .profile-name-cn {
-      font-size: 13px; color: var(--ink3);
-      letter-spacing: 0.08em; margin-bottom: 8px;
-    }
-    .profile-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 6px; }
-    .tag {
-      font-size: 10px; font-weight: 500;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      padding: 3px 8px;
-      border: 1px solid var(--accent); color: var(--accent);
-      border-radius: 1px;
-    }
-    .profile-loc { font-size: 12px; color: var(--ink3); margin-bottom: 4px; }
-    .profile-email {
-      display: flex; align-items: center; gap: 6px;
-      font-size: 12px; color: var(--ink2);
-    }
-    .profile-email a {
-      color: var(--accent); text-decoration: none;
-      border-bottom: 1px solid transparent; transition: border-color 0.2s;
-    }
-    .profile-email a:hover { border-color: var(--accent); }
-
-    .sidebar-nav { list-style: none; display: flex; flex-direction: column; gap: 2px; }
-    .sidebar-nav a {
-      display: block; font-size: 12px; font-weight: 500;
-      letter-spacing: 0.09em; text-transform: uppercase;
-      color: var(--ink3); text-decoration: none;
-      padding: 7px 0; border-bottom: 1px solid var(--line);
-      transition: color 0.2s;
-    }
-    .sidebar-nav a:hover { color: var(--accent); }
-
-    .sidebar-links {
-      list-style: none; display: flex;
-      flex-direction: column; gap: 10px; margin-top: auto;
-    }
-    .sidebar-links a {
-      display: flex; align-items: center; gap: 8px;
-      font-size: 12.5px; color: var(--ink2);
-      text-decoration: none; transition: color 0.2s;
-    }
-    .sidebar-links a:hover { color: var(--accent); }
-    .link-icon { width: 18px; height: 18px; opacity: 0.6; flex-shrink: 0; }
-
-    /* MAIN */
-    .main { padding: 52px 56px 80px; max-width: 760px; }
-
-    /* SECTION */
-    .section {
-      margin-bottom: 64px;
-      opacity: 0; transform: translateY(16px);
-      animation: fadeUp 0.6s ease forwards;
-    }
-    .section:nth-child(1) { animation-delay: 0.05s; }
-    .section:nth-child(2) { animation-delay: 0.13s; }
-    .section:nth-child(3) { animation-delay: 0.21s; }
-    .section:nth-child(4) { animation-delay: 0.29s; }
-    .section:nth-child(5) { animation-delay: 0.37s; }
-    .section:nth-child(6) { animation-delay: 0.45s; }
-    .section:nth-child(7) { animation-delay: 0.53s; }
-    .section:nth-child(8) { animation-delay: 0.61s; }
-
-    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-
-    .section-label {
-      font-size: 10px; font-weight: 500;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 20px;
-      display: flex; align-items: center; gap: 12px;
-    }
-    .section-label::after {
-      content: ''; flex: 1; height: 1px; background: var(--line);
-    }
-
-    /* BIO */
-    .bio-text {
-      font-size: 15px; color: var(--ink2);
-      line-height: 1.85; margin-bottom: 18px;
-    }
-    .bio-text strong { color: var(--ink); font-weight: 500; }
-    .bio-text a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
-    .bio-text a:hover { border-color: var(--accent); }
-
-    .interests { display: flex; flex-wrap: wrap; gap: 8px; }
-    .interest-chip {
-      display: flex; align-items: center; gap: 6px;
-      font-size: 12.5px; font-weight: 500;
-      padding: 5px 13px;
-      background: var(--card); border: 1px solid var(--line);
-      border-radius: 2px; color: var(--ink2);
-    }
-    .interest-chip .dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--accent-light); flex-shrink: 0;
-    }
-
-    /* NEWS */
-    .news-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-    .news-item {
-      display: grid; grid-template-columns: 96px 1fr;
-      gap: 16px; align-items: start;
-      padding: 13px 16px;
-      background: var(--card); border: 1px solid var(--line);
-      border-radius: 2px; transition: border-color 0.2s, transform 0.2s;
-    }
-    .news-item:hover { border-color: var(--accent-light); transform: translateX(3px); }
-    .news-date { font-family: var(--ff-mono); font-size: 11px; color: var(--ink3); padding-top: 2px; }
-    .news-text { font-size: 14px; color: var(--ink2); line-height: 1.6; }
-    .news-text a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
-    .news-text a:hover { border-color: var(--accent); }
-
-    /* HIGHLIGHTS */
-    .highlights-list { display: flex; flex-direction: column; gap: 14px; }
-    .hl-item {
-      display: grid;
-      grid-template-columns: 52px 1fr;
-      gap: 0;
-      background: var(--feat-bg); border: 1px solid var(--feat-border);
-      border-radius: 2px; overflow: hidden;
-      transition: transform 0.2s;
-    }
-    .hl-item:hover { transform: translateX(3px); }
-    .hl-type {
-      display: flex; align-items: center; justify-content: center;
-      writing-mode: vertical-rl; text-orientation: mixed;
-      font-size: 9px; font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; color: #fff;
-      padding: 14px 0;
-    }
-    .hl-type--agent { background: var(--accent); }
-    .hl-type--paper { background: #5C7A5C; }
-    .hl-type--code  { background: #4A6A8B; }
-    .hl-body { padding: 16px 18px; border-left: none; }
-    .hl-title {
-      font-family: var(--ff-display); font-size: 15px;
-      color: var(--ink); margin-bottom: 4px; line-height: 1.45;
-    }
-    .hl-title a { color: var(--ink); text-decoration: none; }
-    .hl-title a:hover { color: var(--accent); }
-    .hl-meta { font-size: 12px; color: var(--ink3); margin-bottom: 8px; }
-    .hl-desc { font-size: 13px; color: var(--ink2); line-height: 1.65; margin-bottom: 12px; }
-    .hl-footer {
-      display: flex; align-items: center;
-      justify-content: space-between; flex-wrap: wrap; gap: 8px;
-    }
-    .hl-venue { font-size: 11.5px; font-weight: 500; color: var(--accent); display: flex; align-items: center; gap: 7px; }
-    .hl-links { display: flex; gap: 12px; }
-    .hl-link {
-      font-size: 11px; color: var(--ink3); text-decoration: none;
-      letter-spacing: 0.04em; border-bottom: 1px solid transparent;
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .hl-link:hover { color: var(--accent); border-color: var(--accent); }
-
-    /* TIMELINE */
-    .timeline { position: relative; padding-left: 28px; }
-    .timeline::before {
-      content: ''; position: absolute;
-      left: 5px; top: 8px; bottom: 8px;
-      width: 1px; background: var(--line);
-    }
-    .tl-item { position: relative; padding-bottom: 28px; }
-    .tl-item::before {
-      content: ''; position: absolute;
-      left: -25px; top: 8px;
-      width: 9px; height: 9px; border-radius: 50%;
-      border: 1.5px solid var(--accent); background: var(--bg);
-      transition: background 0.2s;
-    }
-    .tl-item:hover::before { background: var(--accent); }
-    .tl-period { font-family: var(--ff-mono); font-size: 11px; color: var(--ink3); margin-bottom: 5px; }
-    .tl-role { font-family: var(--ff-display); font-size: 16px; color: var(--ink); margin-bottom: 3px; }
-    .tl-org { font-size: 13px; color: var(--accent-light); font-weight: 500; margin-bottom: 6px; }
-    .tl-desc { font-size: 13.5px; color: var(--ink2); line-height: 1.65; }
-    .tl-desc a { color: var(--accent); text-decoration: none; }
-
-    /* PUBLICATIONS */
-    .pub-list { display: flex; flex-direction: column; }
-    .pub-item {
-      padding: 16px 0; border-bottom: 1px solid var(--line);
-      display: grid; grid-template-columns: 1fr auto;
-      gap: 16px; align-items: start;
-      transition: padding-left 0.15s;
-    }
-    .pub-item:first-child { padding-top: 0; }
-    .pub-item:hover { padding-left: 4px; }
-    .pub-title {
-      font-family: var(--ff-display); font-size: 14px;
-      color: var(--ink); margin-bottom: 4px; line-height: 1.5;
-    }
-    .pub-title a { color: var(--ink); text-decoration: none; }
-    .pub-title a:hover { color: var(--accent); }
-    .pub-authors { font-size: 12px; color: var(--ink3); margin-bottom: 5px; line-height: 1.5; }
-    .pub-venue {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 11.5px; font-weight: 500; color: var(--accent);
-    }
-    .pub-links { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
-    .pub-link {
-      font-size: 11px; color: var(--ink3); text-decoration: none;
-      letter-spacing: 0.04em; border-bottom: 1px solid transparent;
-      transition: color 0.2s; white-space: nowrap;
-    }
-    .pub-link:hover { color: var(--accent); border-color: var(--accent); }
-
-    /* FOOTER */
-    .main-footer {
-      font-size: 11.5px; color: var(--ink3);
-      margin-top: 32px; padding-top: 24px;
-      border-top: 1px solid var(--line);
-    }
-    .main-footer a { color: var(--accent); text-decoration: none; }
-
-    /* RESPONSIVE */
-    @media (max-width: 780px) {
-      .layout { grid-template-columns: 1fr; }
-      .sidebar {
-        position: static; height: auto;
-        padding: 36px 24px 28px;
-        border-right: none; border-bottom: 1px solid var(--line);
-        flex-direction: row; flex-wrap: wrap; gap: 20px;
-      }
-      .sidebar-links { flex-direction: row; flex-wrap: wrap; margin-top: 0; }
-      .main { padding: 36px 24px 60px; }
-      .pub-item { grid-template-columns: 1fr; }
-      .pub-links { flex-direction: row; }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+  <link rel="stylesheet" href="stylesheets/home.css">
+  <script src="javascripts/home.js" defer></script>
 </head>
 <body>
 
-<div class="layout">
-
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <div class="avatar-wrap">
-      <img src="img/me.jpg" alt="Xiaohui Yan">
-    </div>
-
-    <div>
-      <p class="profile-name">Xiaohui Yan</p>
-      <p class="profile-name-cn">晏小辉</p>
-      <div class="profile-tags">
-        <span class="tag">Agent</span>
-        <span class="tag">LLM</span>
-        <span class="tag">IR</span>
-        <span class="tag">NLP</span>
-      </div>
-      <p class="profile-loc">&#x2022; Shenzhen, China</p>
-      <p class="profile-email">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
-        <a href="mailto:yanxiaohui2@huawei.com">yanxiaohui2@huawei.com</a>
-      </p>
-    </div>
-
-    <nav aria-label="Page sections">
-      <ul class="sidebar-nav">
-        <li><a href="#bio">About</a></li>
-        <li><a href="#news">News</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#publications">Publications</a></li>
+<!-- NAV -->
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#top"><span class="brand-mark">XY</span>Xiaohui Yan</a>
+    <nav class="nav-menu" aria-label="Sections">
+      <ul class="nav-links">
+        <li><a href="#about"><span lang="en">About</span><span lang="zh-CN">关于</span></a></li>
+        <li><a href="#news"><span lang="en">News</span><span lang="zh-CN">动态</span></a></li>
+        <li><a href="#research"><span lang="en">Research</span><span lang="zh-CN">研究</span></a></li>
+        <li><a href="#publications"><span lang="en">Publications</span><span lang="zh-CN">论文</span></a></li>
+        <li><a href="#experience"><span lang="en">Experience</span><span lang="zh-CN">经历</span></a></li>
       </ul>
     </nav>
+    <button class="lang-btn" id="lang-toggle" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.6 2.8 3.9 6 3.9 9.5s-1.3 6.7-3.9 9.5c-2.6-2.8-3.9-6-3.9-9.5s1.3-6.7 3.9-9.5Z"/></svg>
+      <span class="lbl-to-zh">中文</span><span class="lbl-to-en">EN</span>
+    </button>
+  </div>
+</header>
 
-    <ul class="sidebar-links">
-      <li>
-        <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M9.5 7h5m-5 5h5m-5 5h5"/></svg>
-        <a href="http://scholar.google.com/citations?user=KZuRKHsAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
-      </li>
-      <li>
-        <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        <a href="https://github.com/xiaohuiyan" target="_blank" rel="noopener">GitHub</a>
-      </li>
-      <li>
-        <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        <a href="https://www.linkedin.com/in/xiaohuiyan" target="_blank" rel="noopener">LinkedIn</a>
-      </li>
-    </ul>
-  </aside>
+<main id="top">
 
-  <!-- MAIN -->
-  <main class="main">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="avatar"><img src="img/me.jpg" alt="Portrait of Xiaohui Yan" width="602" height="602"></div>
+        <div>
+          <p class="eyebrow"><span class="dot"></span>
+            <span lang="en">Deputy Chief Scientist &amp; Head of NLP · Huawei Xiaoyi</span>
+            <span lang="zh-CN">华为小艺 副首席科学家 · NLP 负责人</span>
+          </p>
+          <h1>Xiaohui Yan<span class="cn">晏小辉</span></h1>
+          <p class="tagline" lang="en">Building <em>a personal AI expert for everyone</em> — self-evolving agents that grow with every task and make everyday life and work better.</p>
+          <p class="tagline" lang="zh-CN">让每个人都拥有<em>专属的 AI 专家顾问</em>，<br>在每一次任务中自我进化，让生活与工作更美好。</p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="https://scholar.google.com/citations?user=KZuRKHsAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg>
+              Google Scholar
+            </a>
+            <a class="btn" href="https://github.com/xiaohuiyan" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a10.9 10.9 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+              GitHub
+            </a>
+            <a class="btn" href="https://www.linkedin.com/in/xiaohuiyan" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+              LinkedIn
+            </a>
+            <a class="btn" href="mailto:yanxiaohui2@huawei.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 7 9 6.5L21 7"/></svg>
+              <span lang="en">Email</span><span lang="zh-CN">邮箱</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- ABOUT / BIO -->
-    <section class="section" id="bio">
-      <p class="section-label">About</p>
-      <p class="bio-text">
-        I am <strong>Deputy Chief Scientist and Head of NLP</strong> at <strong>Huawei Xiaoyi</strong>, leading the research and development for <strong>LLM Agents, Question Anaswer, and Search Engine</strong>. 
-        My current focus is on building and scaling up self-evolving AI systems for Deep Research，AI Scientists and Office Automation.
-      </p>
-    </section>
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-head section-head--compact reveal">
+        <p class="kicker"><span lang="en">About</span><span lang="zh-CN">关于我</span></p>      </div>
+      <div class="about-grid">
+        <div class="bio reveal">
+          <p lang="en">I am <strong>Deputy Chief Scientist and Head of NLP at Huawei Xiaoyi</strong>, where I lead research and development on <strong>LLM agents, question answering, and search</strong>. My current focus is building and scaling <strong>self-evolving AI systems</strong> for deep research, AI scientists, and office automation.</p>
+          <p lang="zh-CN">我现任<strong>华为小艺副首席科学家、NLP 负责人</strong>，带领团队从事<strong>大模型智能体、智能问答与搜索</strong>的研究与研发。目前专注于构建并规模化<strong>可自我进化的 AI 系统</strong>，应用于深度研究（Deep Research）、AI 科学家与办公自动化。</p>
+          <p lang="en">Before Huawei, I was a research scientist at Didi AI Lab and an assistant professor at the Institute of Computing Technology, Chinese Academy of Sciences, where I received my Ph.D. and created the <strong>Biterm Topic Model (BTM)</strong>, cited over 2,400 times, for short-text topic modeling.</p>
+          <p lang="zh-CN">加入华为之前，我曾任滴滴 AI Lab 研究科学家、中国科学院计算技术研究所助理研究员。博士毕业于中国科学院计算技术研究所，期间提出了短文本主题模型 <strong>BTM（Biterm Topic Model）</strong>，被引用 2,400 余次。</p>
+        </div>
+        <div class="card interests reveal">
+          <h3><span lang="en">Research interests</span><span lang="zh-CN">研究方向</span></h3>
+          <ul class="chips">
+            <li class="chip"><span lang="en">Self-evolving agents</span><span lang="zh-CN">自进化智能体</span></li>
+            <li class="chip"><span lang="en">Deep research</span><span lang="zh-CN">深度研究</span></li>
+            <li class="chip"><span lang="en">Search agents</span><span lang="zh-CN">搜索智能体</span></li>
+            <li class="chip"><span lang="en">Agent experience &amp; memory</span><span lang="zh-CN">智能体经验与记忆</span></li>
+            <li class="chip"><span lang="en">AI scientists</span><span lang="zh-CN">AI 科学家</span></li>
+            <li class="chip"><span lang="en">Large language models</span><span lang="zh-CN">大语言模型</span></li>
+            <li class="chip"><span lang="en">NLP &amp; IR</span><span lang="zh-CN">自然语言处理与信息检索</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- NEWS -->
-    <section class="section" id="news">
-      <p class="section-label">News &amp; Activities</p>
-      <ul class="news-list">
-        <li class="news-item">
-          <span class="news-date">2026-03-13</span>
-          <span class="news-text">Open sourced the vibe research framework <a href="https://github.com/EvoScientist/EvoScientist/" target="_blank" rel="noopener">EvoScientist</a> for AI-driven autonomous scientific exploration.</span>
+  <!-- NEWS -->
+  <section class="section section--soft" id="news">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="kicker"><span lang="en">News</span><span lang="zh-CN">动态</span></p>
+        <h2><span lang="en">What's new</span><span lang="zh-CN">最新动态</span></h2>
+      </div>
+      <ul class="news reveal">
+        <li>
+          <time datetime="2026-10-09">2026-10-09</time>
+          <p lang="en"><span class="badge-new">NEW</span>Released our survey <em>From Trajectories to Experience: A Survey of Experience-Driven LLM Agents</em>, with a <a href="https://github.com/xiaohuiyan/awesome-experience-driven-agents" target="_blank" rel="noopener">curated list of 271 works</a>.</p>
+          <p lang="zh-CN"><span class="badge-new">NEW</span>发布综述 <em>From Trajectories to Experience: A Survey of Experience-Driven LLM Agents</em>，并开放<a href="https://github.com/xiaohuiyan/awesome-experience-driven-agents" target="_blank" rel="noopener">配套论文清单（271 篇）</a>。</p>
         </li>
-        <li class="news-item">
-          <span class="news-date">2026-03-06</span>
-          <span class="news-text">Xiaoyi Deep Research ranked <strong style="color:var(--ink)">#1</strong> on both <a href="https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard" target="_blank" rel="noopener">Deep Research Bench</a> and <a href="https://agentresearchlab.com/benchmarks/deepresearch-bench-ii/index.html#leaderboard" target="_blank" rel="noopener">Deep Research Bench II</a>.</span>
+        <li>
+          <time datetime="2026-10-04">2026-10-04</time>
+          <p lang="en"><span class="badge-new">NEW</span><a href="https://arxiv.org/abs/2610.05107" target="_blank" rel="noopener">SearchJev</a>, a fast and calibrated System-1 model for search agents, is on arXiv. Code, models, and SearchDecision-Bench are open-sourced.</p>
+          <p lang="zh-CN"><span class="badge-new">NEW</span>发布 <a href="https://arxiv.org/abs/2610.05107" target="_blank" rel="noopener">SearchJev</a>：面向搜索智能体的快速、可校准 System-1 决策模型。代码、模型与 SearchDecision-Bench 均已开源。</p>
+        </li>
+        <li>
+          <time datetime="2026-03-13">2026-03-13</time>
+          <p lang="en">Open-sourced <a href="https://github.com/EvoScientist/EvoScientist/" target="_blank" rel="noopener">EvoScientist</a>, a vibe research framework for AI-driven autonomous scientific exploration.</p>
+          <p lang="zh-CN">开源 vibe research 框架 <a href="https://github.com/EvoScientist/EvoScientist/" target="_blank" rel="noopener">EvoScientist</a>，用于 AI 驱动的自主科学探索。</p>
+        </li>
+        <li>
+          <time datetime="2026-03-06">2026-03-06</time>
+          <p lang="en">Xiaoyi Deep Research ranked <strong>#1</strong> on both <a href="https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard" target="_blank" rel="noopener">Deep Research Bench</a> and <a href="https://agentresearchlab.com/benchmarks/deepresearch-bench-ii/index.html#leaderboard" target="_blank" rel="noopener">Deep Research Bench II</a>.</p>
+          <p lang="zh-CN">小艺深度研究在 <a href="https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard" target="_blank" rel="noopener">Deep Research Bench</a> 与 <a href="https://agentresearchlab.com/benchmarks/deepresearch-bench-ii/index.html#leaderboard" target="_blank" rel="noopener">Deep Research Bench II</a> 两个榜单均位列<strong>第一</strong>。</p>
         </li>
       </ul>
-    </section>
+    </div>
+  </section>
 
-    <!-- HIGHLIGHTS -->
-    <section class="section" id="projects">
-      <p class="section-label">Projects</p>
-      <div class="highlights-list">
-
-        <div class="hl-item">
-          <div class="hl-type hl-type--agent">Agent</div>
-          <div class="hl-body">
-            <p class="hl-title"><a href="https://github.com/EvoScientist/EvoScientist/" target="_blank" rel="noopener">EvoScientist — Vibe Research Agent Framework</a></p>
-            <p class="hl-meta">Huawei Xiaoyi Team · Open Source · 2026</p>
-            <p class="hl-desc">A <strong>multi-agent self-evolving</strong> framework for autonomous scientific research: agents iteratively form hypotheses, design experiments, and synthesize findings — with the system continuously improving its own research strategies over time. Accompanies the Xiaoyi Deep Research system that ranked #1 globally on both Deep Research benchmarks in 2026.</p>
-            <div class="hl-footer">
-              <span class="hl-venue">Open Source · 2026</span>
-              <div class="hl-links">
-                <a class="hl-link" href="https://github.com/EvoScientist/EvoScientist/" target="_blank" rel="noopener">[GitHub]</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="hl-item">
-          <div class="hl-type hl-type--paper">Search</div>
-          <div class="hl-body">
-            <p class="hl-title"><a href="https://xiaoyi.huawei.com/chat/research" target="_blank" rel="noopener">Xiaoyi Deep Research</a></p>
-            <p class="hl-meta">Huawei Xiaoyi Team · 2026</p>
-            <p class="hl-desc">A large-scale Deep Research system built on a <strong>multi-agent self-evolving</strong> architecture: agents autonomously decompose complex queries, retrieve and synthesize multi-source evidence, and continuously refine their own research strategies through self-evolution. Ranked <strong style="color:var(--ink)">#1</strong> on both Deep Research Bench and Deep Research Bench II in 2026.</p>
-            <div class="hl-footer">
-              <span class="hl-venue">
-                <a class="hl-link" href="https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard" target="_blank" rel="noopener">[Bench I]</a>
-                <a class="hl-link" href="https://agentresearchlab.com/benchmarks/deepresearch-bench-ii/index.html#leaderboard" target="_blank" rel="noopener">[Bench II]</a>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hl-item">
-          <div class="hl-type hl-type--code">QA</div>
-          <div class="hl-body">
-            <p class="hl-title">Xiaoyi Question &amp; Answer</p>
-            <p class="hl-meta">Huawei Xiaoyi Team</p>
-            <p class="hl-desc">A production-grade intelligent QA system powering Huawei's Xiaoyi assistant, covering open-domain question answering, knowledge-grounded dialogue, and intent-aware retrieval at scale across hundreds of millions of queries.</p>
-            <div class="hl-footer">
-              <span class="hl-venue">Huawei Xiaoyi</span>
-            </div>
-          </div>
-        </div>
-
+  <!-- RESEARCH -->
+  <section class="section" id="research">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="kicker"><span lang="en">Research</span><span lang="zh-CN">研究</span></p>
+        <h2><span lang="en">Featured work</span><span lang="zh-CN">代表工作</span></h2>
+        <p lang="en">From fast decisions inside search agents, to agents that accumulate experience, to systems that do research end to end.</p>
+        <p lang="zh-CN">从搜索智能体内部的快速决策，到能够积累经验的智能体，再到端到端完成研究的系统。</p>
       </div>
-    </section>
 
-    <!-- EXPERIENCE -->
-    <section class="section" id="experience">
-      <p class="section-label">Work Experience</p>
-      <div class="timeline">
-        <div class="tl-item">
-          <p class="tl-period">2017.02 — Present</p>
-          <p class="tl-role">Deputy Chief Scientist &amp; Head of NLP</p>
-          <p class="tl-org">Huawei · Xiaoyi</p>
-          <p class="tl-desc">Leading research on Deep Research Agents, Search-Augmented LLMs, large-scale QA, and conversational AI. The Xiaoyi Deep Research system ranked #1 globally on Deep Research Bench in 2026.</p>
-        </div>
-        <div class="tl-item">
-          <p class="tl-period">2016.04 — 2017.02</p>
-          <p class="tl-role">Research Scientist</p>
-          <p class="tl-org">Didi AI Lab</p>
-          <p class="tl-desc">Worked on user profiling and intelligent car dispatch systems at scale.</p>
-        </div>
-        <div class="tl-item">
-          <p class="tl-period">2014.07 — 2016.04</p>
-          <p class="tl-role">Assistant Professor</p>
-          <p class="tl-org">Institute of Computing Technology, Chinese Academy of Sciences</p>
-          <p class="tl-desc">Developed the cloud-based ML platform <a href="http://159.226.40.104:18080/" target="_blank" rel="noopener">BDA (Big Data Analysis)</a>, providing a web interface to build and manage machine learning pipelines.</p>
-        </div>
+      <div class="feature-grid">
+        <!-- SearchJev -->
+        <article class="feature reveal">
+          <div class="card-top">
+            <span class="badge-new">NEW</span>
+            <span class="tag"><span lang="en">Search Agents · 2026</span><span lang="zh-CN">搜索智能体 · 2026</span></span>
+          </div>
+          <h3><a href="https://arxiv.org/abs/2610.05107" target="_blank" rel="noopener">SearchJev</a></h3>
+          <p class="subtitle">A Fast and Calibrated System-1 Model for Search Agents</p>
+          <p class="desc" lang="en">Search agents make many short decisions: is this page relevant, is the evidence sufficient, what should be searched next. SearchJev scores the legal options of each decision in a single forward pass and outputs calibrated probabilities. Only uncertain cases are escalated to a System-2 LLM for planning and answering.</p>
+          <p class="desc" lang="zh-CN">搜索智能体需要频繁做出大量短决策：页面是否相关、证据是否充分、下一步搜什么。SearchJev 一次前向即可为每个决策的合法选项打分，并输出校准后的概率；只有不确定的情况才交给 System-2 大模型进行规划与作答。</p>
+          <ul class="metrics">
+            <li class="metric"><b>5.2–5.3×</b> <span lang="en">faster decisions</span><span lang="zh-CN">决策提速</span></li>
+            <li class="metric"><b>41–74%</b> <span lang="en">lower ECE</span><span lang="zh-CN">ECE 降低</span></li>
+            <li class="metric"><span lang="en">SearchDecision-Bench · 6 decision types</span><span lang="zh-CN">SearchDecision-Bench · 6 类决策</span></li>
+          </ul>
+          <div class="links">
+            <a class="link-pill" href="https://arxiv.org/abs/2610.05107" target="_blank" rel="noopener"><span lang="en">Paper</span><span lang="zh-CN">论文</span></a>
+            <a class="link-pill" href="https://github.com/EvoScientist/SearchJev" target="_blank" rel="noopener"><span lang="en">Code</span><span lang="zh-CN">代码</span></a>
+            <a class="link-pill" href="https://huggingface.co/SearchJev" target="_blank" rel="noopener"><span lang="en">Models &amp; Data</span><span lang="zh-CN">模型与数据</span></a>
+          </div>
+        </article>
+
+        <!-- Experience-driven agents survey -->
+        <article class="feature reveal">
+          <div class="card-top">
+            <span class="badge-new">NEW</span>
+            <span class="tag"><span lang="en">Survey · 2026</span><span lang="zh-CN">综述 · 2026</span></span>
+          </div>
+          <h3><a href="https://xiaohuiyan.github.io/awesome-experience-driven-agents/" target="_blank" rel="noopener">From Trajectories to Experience</a></h3>
+          <p class="subtitle">A Survey of Experience-Driven LLM Agents</p>
+          <p class="desc" lang="en">Why do LLM agents repeat mistakes their own trajectories could have taught them? We define agent experience as action-guiding information distilled from trajectories and retained for later use, and organize 271 works along its lifecycle.</p>
+          <p class="desc" lang="zh-CN">为什么大模型智能体会反复犯下自身轨迹本可以避免的错误？我们将“经验”定义为从执行轨迹中提炼、可指导后续行动并被保留下来的信息，并沿经验的生命周期梳理了 271 篇相关工作。</p>
+          <ol class="lifecycle" aria-label="Experience lifecycle">
+            <li><span><span lang="en">Formation</span><span lang="zh-CN">形成</span></span></li>
+            <li><span><span lang="en">Organization</span><span lang="zh-CN">组织</span></span></li>
+            <li><span><span lang="en">Utilization</span><span lang="zh-CN">利用</span></span></li>
+            <li><span><span lang="en">Maintenance</span><span lang="zh-CN">维护</span></span></li>
+          </ol>
+          <p class="forms" lang="en">Three forms of experience: precedents · lessons · procedures</p>
+          <p class="forms" lang="zh-CN">经验的三种形态：先例 · 教训 · 流程</p>
+          <div class="links">
+            <a class="link-pill" href="https://xiaohuiyan.github.io/awesome-experience-driven-agents/" target="_blank" rel="noopener"><span lang="en">Project page</span><span lang="zh-CN">项目主页</span></a>
+            <a class="link-pill" href="https://github.com/xiaohuiyan/awesome-experience-driven-agents" target="_blank" rel="noopener"><span lang="en">Awesome list</span><span lang="zh-CN">论文清单</span></a>
+            <span class="link-muted"><span lang="en">Preprint coming soon</span><span lang="zh-CN">预印本即将发布</span></span>
+          </div>
+        </article>
       </div>
-    </section>
 
-    <!-- PUBLICATIONS -->
-    <section class="section" id="publications">
-      <p class="section-label">Publications</p>
-      <div class="pub-list">
+      <div class="project-grid">
+        <!-- EvoScientist -->
+        <article class="project reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7 15h10"/></svg></div>
+          <h3><a href="https://github.com/EvoScientist/EvoScientist/" target="_blank" rel="noopener">EvoScientist</a></h3>
+          <p class="desc" lang="en">A multi-agent, self-evolving framework for end-to-end scientific discovery. Agents form hypotheses, design and run experiments, and synthesize findings, and they keep improving their own research strategies along the way.</p>
+          <p class="desc" lang="zh-CN">面向端到端科学发现的多智能体自进化框架：智能体自主提出假设、设计并执行实验、总结发现，并在过程中持续改进自身的研究策略。</p>
+          <div class="links">
+            <a class="link-pill" href="https://arxiv.org/abs/2603.08127" target="_blank" rel="noopener">arXiv</a>
+            <a class="link-pill" href="https://github.com/EvoScientist/EvoScientist/" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
 
-        <div class="pub-item">
+        <!-- Xiaoyi Deep Research -->
+        <article class="project reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M8 11h6M11 8v6"/></svg></div>
+          <h3><a href="https://xiaoyi.huawei.com/chat/research" target="_blank" rel="noopener"><span lang="en">Xiaoyi Deep Research</span><span lang="zh-CN">小艺深度研究</span></a></h3>
+          <p class="desc" lang="en">A large-scale deep research system built on a multi-agent, self-evolving architecture. It decomposes complex questions and synthesizes evidence from many sources. Ranked #1 on Deep Research Bench I &amp; II in 2026.</p>
+          <p class="desc" lang="zh-CN">基于多智能体自进化架构的大规模深度研究系统，可自主拆解复杂问题、检索并综合多源证据。2026 年在 Deep Research Bench I 与 II 双榜位列第一。</p>
+          <div class="links">
+            <a class="link-pill" href="https://xiaoyi.huawei.com/chat/research" target="_blank" rel="noopener"><span lang="en">Try it</span><span lang="zh-CN">体验</span></a>
+            <a class="link-pill" href="https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard" target="_blank" rel="noopener">Bench I</a>
+            <a class="link-pill" href="https://agentresearchlab.com/benchmarks/deepresearch-bench-ii/index.html#leaderboard" target="_blank" rel="noopener">Bench II</a>
+          </div>
+        </article>
+
+        <!-- Xiaoyi QA -->
+        <article class="project reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12Z"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5v.2M12 16.5h.01"/></svg></div>
+          <h3><span lang="en">Xiaoyi Question Answering</span><span lang="zh-CN">小艺智能问答</span></h3>
+          <p class="desc" lang="en">The production QA system behind Huawei's Xiaoyi assistant. It covers open-domain question answering, knowledge-grounded dialogue, and intent-aware retrieval across hundreds of millions of queries.</p>
+          <p class="desc" lang="zh-CN">支撑华为小艺助手的线上智能问答系统，覆盖开放域问答、知识增强对话与意图感知检索，服务数亿次用户请求。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section class="section section--soft" id="publications">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="kicker"><span lang="en">Publications</span><span lang="zh-CN">论文</span></p>
+        <h2><span lang="en">Selected publications</span><span lang="zh-CN">代表论文</span></h2>
+        <p><span lang="en">Full list on </span><span lang="zh-CN">完整列表见 </span><a href="https://scholar.google.com/citations?user=KZuRKHsAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>.</p>
+      </div>
+
+      <h3 class="sub-head reveal"><span lang="en">Recent</span><span lang="zh-CN">近期</span></h3>
+      <ul class="pub-list reveal">
+        <li class="pub">
+          <span class="venue">arXiv 2026</span>
+          <div>
+            <p class="pub-title"><a href="https://arxiv.org/abs/2610.05107" target="_blank" rel="noopener">SearchJev: A Fast and Calibrated System-1 Model for Search Agents</a></p>
+            <p class="pub-authors">C Cao, L Zuo, K Papakostas, Q Xu, S Xu, L Zhou, Z Ren, Y Lyu, <b>X Yan</b></p>
+          </div>
+          <div class="pub-links">
+            <a class="link-pill" href="https://arxiv.org/abs/2610.05107" target="_blank" rel="noopener">arXiv</a>
+            <a class="link-pill" href="https://github.com/EvoScientist/SearchJev" target="_blank" rel="noopener"><span lang="en">Code</span><span lang="zh-CN">代码</span></a>
+            <a class="link-pill" href="https://huggingface.co/SearchJev" target="_blank" rel="noopener">HF</a>
+          </div>
+        </li>
+        <li class="pub">
+          <span class="venue">Survey 2026</span>
+          <div>
+            <p class="pub-title"><a href="https://xiaohuiyan.github.io/awesome-experience-driven-agents/" target="_blank" rel="noopener">From Trajectories to Experience: A Survey of Experience-Driven LLM Agents</a></p>
+            <p class="pub-authors"><b>X Yan</b>, Y Zhang, S Liu, X Huang, Y Yue, Z Xia, J Yao, X Chen, Y Hu, F Li, S Liu, Y Fan, Z Li, R Zhang, J Guo</p>
+            <p class="pub-note"><span lang="en">Preprint coming soon</span><span lang="zh-CN">预印本即将发布</span></p>
+          </div>
+          <div class="pub-links">
+            <a class="link-pill" href="https://xiaohuiyan.github.io/awesome-experience-driven-agents/" target="_blank" rel="noopener"><span lang="en">Project</span><span lang="zh-CN">主页</span></a>
+            <a class="link-pill" href="https://github.com/xiaohuiyan/awesome-experience-driven-agents" target="_blank" rel="noopener"><span lang="en">List</span><span lang="zh-CN">清单</span></a>
+          </div>
+        </li>
+        <li class="pub">
+          <span class="venue">TASLP 2026</span>
           <div>
             <p class="pub-title">Exploring Cross-lingual Latent Transplantation: Mutual Opportunities and Open Challenges</p>
-            <p class="pub-authors">Y Ye, X Feng, X Feng, L Qin, Y Huang, L Huang, W Ma, Q Hong, Z Zhang, <strong>X Yan</strong>, et al.</p>
-            <span class="pub-venue">IEEE Transactions on Audio, Speech and Language Processing · 2026</span>
+            <p class="pub-authors">Y Ye, X Feng, X Feng, L Qin, Y Huang, L Huang, W Ma, Q Hong, Z Zhang, <b>X Yan</b>, et al.</p>
+            <p class="pub-note">IEEE Transactions on Audio, Speech and Language Processing</p>
           </div>
           <div class="pub-links"></div>
-        </div>
-
-        <div class="pub-item">
+        </li>
+        <li class="pub">
+          <span class="venue">arXiv 2026</span>
           <div>
-            <p class="pub-title">EvoIdeator: Evolving Scientific Ideas through Checklist-Grounded Reinforcement Learning</p>
-            <p class="pub-authors">A Sauter, Y Zhao, J Urbani, W Hu, Z Meng, L Zhou, <strong>X Yan</strong>, Y Lyu.</p>
-            <span class="pub-venue">arXiv:2603.21728 · 2026</span>
+            <p class="pub-title"><a href="https://arxiv.org/abs/2603.21728" target="_blank" rel="noopener">EvoIdeator: Evolving Scientific Ideas through Checklist-Grounded Reinforcement Learning</a></p>
+            <p class="pub-authors">A Sauter, Y Zhao, J Urbani, W Hu, Z Meng, L Zhou, <b>X Yan</b>, Y Lyu</p>
           </div>
-          <div class="pub-links"><a class="pub-link" href="https://arxiv.org/abs/2603.21728" target="_blank" rel="noopener">[arXiv]</a></div>
-        </div>
-
-        <div class="pub-item">
+          <div class="pub-links"><a class="link-pill" href="https://arxiv.org/abs/2603.21728" target="_blank" rel="noopener">arXiv</a></div>
+        </li>
+        <li class="pub">
+          <span class="venue">arXiv 2026</span>
           <div>
-            <p class="pub-title">EvoScientist: Towards Multi-Agent Evolving AI Scientists for End-to-End Scientific Discovery</p>
-            <p class="pub-authors">Y Lyu, X Zhang, X Yi, Y Zhao, S Guo, W Hu, J Piotrowski, J Kaliski, <strong>X Yan</strong>, et al.</p>
-            <span class="pub-venue">arXiv:2603.08127 · 2026</span>
+            <p class="pub-title"><a href="https://arxiv.org/abs/2603.08127" target="_blank" rel="noopener">EvoScientist: Towards Multi-Agent Evolving AI Scientists for End-to-End Scientific Discovery</a></p>
+            <p class="pub-authors">Y Lyu, X Zhang, X Yi, Y Zhao, S Guo, W Hu, J Piotrowski, J Kaliski, <b>X Yan</b>, et al.</p>
           </div>
-          <div class="pub-links"><a class="pub-link" href="https://arxiv.org/abs/2603.08127" target="_blank" rel="noopener">[arXiv]</a></div>
-        </div>
-
-        <div class="pub-item">
+          <div class="pub-links">
+            <a class="link-pill" href="https://arxiv.org/abs/2603.08127" target="_blank" rel="noopener">arXiv</a>
+            <a class="link-pill" href="https://github.com/EvoScientist/EvoScientist/" target="_blank" rel="noopener"><span lang="en">Code</span><span lang="zh-CN">代码</span></a>
+          </div>
+        </li>
+        <li class="pub">
+          <span class="venue">EMNLP 2025</span>
           <div>
             <p class="pub-title">Knowledge-Augmented Question Error Correction for Chinese Question Answer System with QuestionRAG</p>
-            <p class="pub-authors">L Qiu, T Li, S Mao, N Yang, <strong>X Yan</strong>.</p>
-            <span class="pub-venue">EMNLP 2025</span>
+            <p class="pub-authors">L Qiu, T Li, S Mao, N Yang, <b>X Yan</b></p>
           </div>
           <div class="pub-links"></div>
-        </div>
-
-        <div class="pub-item">
+        </li>
+        <li class="pub">
+          <span class="venue">ACL 2025</span>
           <div>
-            <p class="pub-title">CC-TUNING: A Cross-Lingual Connection Mechanism for Improving Joint Multilingual Supervised Fine-Tuning</p>
-            <p class="pub-authors">Y Ye, X Feng, Z Yuan, X Feng, L Qin, L Huang, W Ma, Y Huang, Z Zhang, <strong>X Yan</strong>, et al.</p>
-            <span class="pub-venue">ACL 2025</span>
+            <p class="pub-title">CC-Tuning: A Cross-Lingual Connection Mechanism for Improving Joint Multilingual Supervised Fine-Tuning</p>
+            <p class="pub-authors">Y Ye, X Feng, Z Yuan, X Feng, L Qin, L Huang, W Ma, Y Huang, Z Zhang, <b>X Yan</b>, et al.</p>
           </div>
           <div class="pub-links"></div>
+        </li>
+      </ul>
+
+      <div class="earlier">
+        <h3 class="sub-head reveal"><span lang="en">Earlier research</span><span lang="zh-CN">早期研究</span></h3>
+
+        <div class="spotlight reveal">
+          <div>
+            <span class="tag"><span lang="en">Short-text topic modeling</span><span lang="zh-CN">短文本主题建模</span></span>
+            <h4>Biterm Topic Model (BTM) <a class="cite-badge" href="https://scholar.google.com/citations?user=KZuRKHsAAAAJ&amp;hl=en" target="_blank" rel="noopener" title="WWW'13: 1,678 · TKDE'14: 783 (Google Scholar, Oct 2026)"><span lang="en">2,400+ citations</span><span lang="zh-CN">被引 2,400+ 次</span></a></h4>
+            <p class="desc" lang="en">A topic model for short texts such as tweets, queries, and titles. Instead of modeling sparse documents one by one, BTM models word co-occurrence patterns (biterms) over the whole corpus. It has been widely adopted for short-text mining and was extended to bursty topic discovery (BBTM) and online inference.</p>
+            <p class="desc" lang="zh-CN">面向微博、查询、标题等短文本的主题模型。BTM 不再逐篇建模稀疏的短文档，而是直接在整个语料上建模词对（biterm）共现，有效缓解了短文本的稀疏性问题。该模型被广泛用于短文本挖掘，并扩展至突发话题发现（BBTM）与在线推断。</p>
+          </div>
+          <ul class="spot-links">
+            <li><span class="k">WWW 2013</span><span class="v"><a class="link-pill" href="paper/BTM-WWW13.pdf">Paper</a><a class="link-pill" href="paper/BTM_WWW13_slides.ppt">Slides</a></span></li>
+            <li><span class="k">TKDE 2014</span><span class="v"><a class="link-pill" href="paper/BTM-TKDE.pdf">Paper</a><a class="link-pill" href="paper/BTM-TKDE-supplemental.pdf">Supplement</a></span></li>
+            <li><span class="k">AAAI 2015</span><span class="v"><a class="link-pill" href="paper/BBTM-AAAI15.pdf">BBTM</a><a class="link-pill" href="paper/BBTM-AAAI15-supplemental.pdf">Supplement</a></span></li>
+            <li><span class="k"><span lang="en">Code</span><span lang="zh-CN">代码</span></span><span class="v"><a class="link-pill" href="https://github.com/xiaohuiyan/BTM" target="_blank" rel="noopener">BTM</a><a class="link-pill" href="https://github.com/xiaohuiyan/OnlineBTM" target="_blank" rel="noopener">OnlineBTM</a><a class="link-pill" href="https://github.com/xiaohuiyan/BurstyBTM" target="_blank" rel="noopener">BurstyBTM</a></span></li>
+          </ul>
         </div>
 
+        <details class="older reveal">
+          <summary>
+            <span><span lang="en">All earlier publications (2011–2020)</span><span lang="zh-CN">全部早期论文（2011–2020）</span></span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <ul class="pub-list">
+            <li class="pub pub--compact">
+              <span class="venue">AAAI 2020</span>
+              <div>
+                <p class="pub-title">Graph LSTM with Context-Gated Mechanism for Spoken Language Understanding</p>
+                <p class="pub-authors">L Zhang, D Ma, X Zhang, <b>X Yan</b>, H Wang</p>
+              </div>
+              <div class="pub-links"><a class="link-pill" href="paper/AAAI-ZhangL.2694.pdf">PDF</a></div>
+            </li>
+            <li class="pub pub--compact">
+              <span class="venue">AAAI 2020</span>
+              <div>
+                <p class="pub-title">Convolutional Hierarchical Attention Network for Query-Focused Video Summarization</p>
+                <p class="pub-authors">S Xiao, Z Zhao, Z Zhang, <b>X Yan</b>, M Yang</p>
+              </div>
+              <div class="pub-links"><a class="link-pill" href="paper/AAAI-XiaoS.10343.pdf">PDF</a></div>
+            </li>
+            <li class="pub pub--compact">
+              <span class="venue">CIKM 2019</span>
+              <div>
+                <p class="pub-title">Generative Question Refinement with Deep Reinforcement Learning in Retrieval-based QA System</p>
+                <p class="pub-authors">Y Liu, C Zhang, <b>X Yan</b>, Y Chang, P S Yu</p>
+              </div>
+              <div class="pub-links"><a class="link-pill" href="https://arxiv.org/abs/1908.05604" target="_blank" rel="noopener">arXiv</a></div>
+            </li>
+            <li class="pub pub--compact">
+              <span class="venue">TIP 2019</span>
+              <div>
+                <p class="pub-title">Long-Form Video Question Answering via Dynamic Hierarchical Reinforced Networks</p>
+                <p class="pub-authors">Z Zhao, Z Zhang, S Xiao, Z Xiao, <b>X Yan</b>, J Yu, D Cai, F Wu</p>
+              </div>
+              <div class="pub-links"></div>
+            </li>
+            <li class="pub pub--compact">
+              <span class="venue">ACL 2019</span>
+              <div>
+                <p class="pub-title">Learning Representation Mapping for Relation Detection in Knowledge Base Question Answering</p>
+                <p class="pub-authors">P Wu, S Huang, R Weng, Z Zheng, J Zhang, <b>X Yan</b>, J Chen</p>
+              </div>
+              <div class="pub-links"></div>
+            </li>
+            <li class="pub pub--compact">
+              <span class="venue">Neurocomputing 2019</span>
+              <div>
+                <p class="pub-title">Abstractive Meeting Summarization by Hierarchical Adaptive Segmental Network Learning with Multiple Revising Steps</p>
+                <p class="pub-authors">J Zheng, Z Zhao, Z Song, M Yang, J Xiao, <b>X Yan</b></p>
+              </div>
+              <div class="pub-links"></div>
+            </li>
+            <li class="pub pub--compact">
+              <span class="venue">AAAI 2019</span>
+              <div>
+                <p class="pub-title">Hashtag Recommendation for Photo Sharing Services</p>
+                <p class="pub-authors">S Zhang, Y Yao, F Xu, H Tong, <b>X Yan</b>, J Lv</p>
+              </div>
+              <div class="pub-links"><a class="link-pill" href="https://pdfs.semanticscholar.org/bdc7/cce0393d1788f992c2e6a824b066e95e15d1.pdf" target="_blank" rel="noopener">PDF</a></div>
+            </li>
+            <li class="pub pub--compact">
+              <span class="venue">AAAI 2019</span>
+              <div>
+                <p class="pub-title">An Integral Tag Recommendation Model for Textual Content</p>
+                <p class="pub-authors">S Tang, Y Yao, S Zhang, F Xu, T Gu, H Tong, <b>X Yan</b>, J Lv</p>
+              </div>
+              <div class="pub-links"><a class="link-pill" href="https://cs.nju.edu.cn/yuanyao/static/aaai2019b.pdf" target="_blank" rel="noopener">PDF</a></div>
+            </li>
+            <li class="pub pub--compact">
+              <span class="venue">EMNLP 2018</span>
+              <div>
+                <p class="pub-title">Zero-shot User Intent Detection via Capsule Neural Networks</p>
+                <p class="pub-authors">C Xia, C Zhang, <b>X Yan</b>, Y Chang, P S Yu</p>
+              </div>
+              <div class="pub-links"><a class="link-pill" href="https://arxiv.org/abs/1809.00385" target="_blank" rel="noopener">arXiv</a></div>
+            </li>
+            <li class="pub pub--compact">
+              <span class="venue">NAACL 2018</span>
+              <div>
+                <p class="pub-title">Abstract Meaning Representation for Paraphrase Detection</p>
+                <p class="pub-authors">F Issa, M Damonte, S B Cohen, <b>X Yan</b>, Y Chang</p>
+              </div>
+              <div class="pub-links"><a class="link-pill" href="https://aclanthology.org/N18-1041/" target="_blank" rel="noopener">ACL Anthology</a></div>
+            </li>
+            <li class="pub pub--compact">
+              <span class="venue">CIKM 2016</span>
+              <div>
+                <p class="pub-title">Ease the Process of Machine Learning with Dataflow</p>
+                <p class="pub-authors">T Guo, J Xu, <b>X Yan</b>, J Hou, P Li, Z Li, J Guo, X Cheng · Demo</p>
+              </div>
+              <div class="pub-links"><a class="link-pill" href="paper/CIKM2016_BDADemo.pdf">PDF</a></div>
+            </li>
+            <li class="pub pub--compact">
+              <span class="venue">AAAI 2015</span>
+              <div>
+                <p class="pub-title">A Probabilistic Model for Bursty Topic Discovery in Microblogs</p>
+                <p class="pub-authors"><b>X Yan</b>, J Guo, Y Lan, J Xu, X Cheng</p>
+              </div>
+              <div class="pub-links">
+                <a class="link-pill" href="paper/BBTM-AAAI15.pdf">PDF</a>
+                <a class="link-pill" href="paper/BBTM-AAAI15-supplemental.pdf">Supp.</a>
+                <a class="link-pill" href="https://github.com/xiaohuiyan/BurstyBTM" target="_blank" rel="noopener">Code</a>
+              </div>
+            </li>
+            <li class="pub pub--compact">
+              <span class="venue">TKDE 2014</span>
+              <div>
+                <p class="pub-title">BTM: Topic Modeling over Short Texts</p>
+                <p class="pub-authors">X Cheng, <b>X Yan</b>, Y Lan, J Guo</p>
+              </div>
+              <div class="pub-links">
+                <a class="link-pill" href="paper/BTM-TKDE.pdf">PDF</a>
+                <a class="link-pill" href="paper/BTM-TKDE-supplemental.pdf">Supp.</a>
+                <a class="link-pill" href="https://github.com/xiaohuiyan/OnlineBTM" target="_blank" rel="noopener">Code</a>
+              </div>
+            </li>
+            <li class="pub pub--compact">
+              <span class="venue">Ph.D. 2014</span>
+              <div>
+                <p class="pub-title">Topic Modeling over Short Texts</p>
+                <p class="pub-authors"><b>X Yan</b> · <span lang="en">Ph.D. thesis (in Chinese), Chinese Academy of Sciences</span><span lang="zh-CN">博士学位论文，中国科学院</span></p>
+              </div>
+              <div class="pub-links"><a class="link-pill" href="paper/yxh-thesis-public.pdf">PDF</a></div>
+            </li>
+            <li class="pub pub--compact">
+              <span class="venue">JCIP 2014</span>
+              <div>
+                <p class="pub-title">Probabilistic Transaction Model for Recommending Data of Offline Shopping Mall</p>
+                <p class="pub-authors">P Wang, Y Lan, J Guo, <b>X Yan</b>, X Cheng · Journal of Chinese Information Processing</p>
+              </div>
+              <div class="pub-links"></div>
+            </li>
+            <li class="pub pub--compact">
+              <span class="venue">WWW 2013</span>
+              <div>
+                <p class="pub-title">A Biterm Topic Model for Short Texts</p>
+                <p class="pub-authors"><b>X Yan</b>, J Guo, Y Lan, X Cheng</p>
+              </div>
+              <div class="pub-links">
+                <a class="link-pill" href="paper/BTM-WWW13.pdf">PDF</a>
+                <a class="link-pill" href="paper/BTM_WWW13_slides.ppt">Slides</a>
+                <a class="link-pill" href="https://github.com/xiaohuiyan/BTM" target="_blank" rel="noopener">Code</a>
+              </div>
+            </li>
+            <li class="pub pub--compact">
+              <span class="venue">SDM 2013</span>
+              <div>
+                <p class="pub-title">Learning Topics in Short Texts by Non-negative Matrix Factorization on Term Correlation Matrix</p>
+                <p class="pub-authors"><b>X Yan</b>, J Guo, S Liu, X Cheng, Y Wang</p>
+              </div>
+              <div class="pub-links">
+                <a class="link-pill" href="paper/TNMF-SDM13.pdf">PDF</a>
+                <a class="link-pill" href="paper/TNMF-SDM13-poster.pdf">Poster</a>
+              </div>
+            </li>
+            <li class="pub pub--compact">
+              <span class="venue">CIKM 2012</span>
+              <div>
+                <p class="pub-title">Clustering Short Text Using Ncut-weighted Non-negative Matrix Factorization</p>
+                <p class="pub-authors"><b>X Yan</b>, J Guo, S Liu, X Cheng, Y Wang</p>
+              </div>
+              <div class="pub-links">
+                <a class="link-pill" href="paper/WNMF-CIKM12.pdf">PDF</a>
+                <a class="link-pill" href="paper/WNMF-CIKM12-poster.pdf">Poster</a>
+              </div>
+            </li>
+            <li class="pub pub--compact">
+              <span class="venue">CIKM 2011</span>
+              <div>
+                <p class="pub-title">Context-aware Query Recommendation by Learning High-order Relation in Query Logs</p>
+                <p class="pub-authors"><b>X Yan</b>, J Guo, X Cheng</p>
+              </div>
+              <div class="pub-links">
+                <a class="link-pill" href="paper/QR-CIKM11.pdf">PDF</a>
+                <a class="link-pill" href="paper/QR-CIKM11-poster.pdf">Poster</a>
+                <a class="link-pill" href="https://github.com/l0he1g/codecloud/tree/master/EM/em_hadoop" target="_blank" rel="noopener">Code</a>
+              </div>
+            </li>
+          </ul>
+        </details>
       </div>
-    </section>
+    </div>
+  </section>
 
+  <!-- EXPERIENCE -->
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="kicker"><span lang="en">Experience</span><span lang="zh-CN">经历</span></p>
+        <h2><span lang="en">Career &amp; education</span><span lang="zh-CN">工作与教育</span></h2>
+      </div>
+      <ol class="timeline reveal">
+        <li class="tl">
+          <p class="tl-period">2017.02 — <span lang="en">Present</span><span lang="zh-CN">至今</span></p>
+          <div>
+            <h3><span lang="en">Deputy Chief Scientist &amp; Head of NLP</span><span lang="zh-CN">副首席科学家、NLP 负责人</span></h3>
+            <p class="tl-org"><span lang="en">Huawei · Xiaoyi</span><span lang="zh-CN">华为 · 小艺</span></p>
+            <p class="tl-desc" lang="en">Leading research on deep research agents, search-augmented LLMs, large-scale QA, and conversational AI. Xiaoyi Deep Research ranked #1 on Deep Research Bench I &amp; II in 2026. Earlier, led the dialog and QA group at Huawei Poisson Lab.</p>
+            <p class="tl-desc" lang="zh-CN">负责深度研究智能体、搜索增强大模型、大规模问答与对话系统的研究。小艺深度研究于 2026 年登顶 Deep Research Bench I 与 II 双榜。此前负责华为泊松实验室对话与问答团队。</p>
+          </div>
+        </li>
+        <li class="tl">
+          <p class="tl-period">2016.04 — 2017.02</p>
+          <div>
+            <h3><span lang="en">Research Scientist</span><span lang="zh-CN">研究科学家</span></h3>
+            <p class="tl-org"><span lang="en">Didi AI Lab</span><span lang="zh-CN">滴滴 AI Lab</span></p>
+            <p class="tl-desc" lang="en">Worked on user profiling and intelligent car dispatch at scale.</p>
+            <p class="tl-desc" lang="zh-CN">从事大规模用户画像与智能派单研究。</p>
+          </div>
+        </li>
+        <li class="tl">
+          <p class="tl-period">2014.07 — 2016.04</p>
+          <div>
+            <h3><span lang="en">Assistant Professor</span><span lang="zh-CN">助理研究员</span></h3>
+            <p class="tl-org"><span lang="en">Institute of Computing Technology, Chinese Academy of Sciences</span><span lang="zh-CN">中国科学院计算技术研究所</span></p>
+            <p class="tl-desc" lang="en">Built BDA (Big Data Analysis), a cloud-based machine learning platform with a web interface for building and managing ML pipelines (CIKM'16 demo).</p>
+            <p class="tl-desc" lang="zh-CN">研发云端机器学习平台 BDA（Big Data Analysis），通过 Web 界面构建与管理机器学习流程（CIKM'16 Demo）。</p>
+          </div>
+        </li>
+        <li class="tl">
+          <p class="tl-period">— 2014</p>
+          <div>
+            <h3>Ph.D.</h3>
+            <p class="tl-org"><span lang="en">Institute of Computing Technology, Chinese Academy of Sciences</span><span lang="zh-CN">中国科学院计算技术研究所</span></p>
+            <p class="tl-desc"><span lang="en">Thesis: </span><span lang="zh-CN">博士论文：</span><a href="paper/yxh-thesis-public.pdf">Topic Modeling over Short Texts</a></p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
 
-    <footer class="main-footer">
-      Xiaohui Yan &mdash; Shenzhen, China &mdash; <a href="mailto:yanxiaohui2@huawei.com">yanxiaohui2@huawei.com</a>
-    </footer>
+</main>
 
-  </main>
-</div>
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>© 2026 Xiaohui Yan · <span lang="en">Last updated Oct 2026</span><span lang="zh-CN">更新于 2026 年 10 月</span></p>
+    <ul class="footer-links">
+      <li><a href="mailto:yanxiaohui2@huawei.com">yanxiaohui2@huawei.com</a></li>
+      <li><a href="https://scholar.google.com/citations?user=KZuRKHsAAAAJ&amp;hl=en" target="_blank" rel="noopener">Scholar</a></li>
+      <li><a href="https://github.com/xiaohuiyan" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </div>
+</footer>
 
 </body>
 </html>
